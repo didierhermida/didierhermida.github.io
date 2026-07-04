@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Didier Hermida Giraldo — Economist</title>
+<meta name="description" content="Didier Hermida Giraldo — Economist at Banco de la República. Research on labour markets, migration, and development economics.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #0c2340;
+    --paper:  #f0f4fa;
+    --muted:  #4a6f9a;
+    --accent: #185FA5;
+    --bright: #378ADD;
+    --rule:   #c5d8ef;
+    --nav-bg: #0c2340;
+    --nav-name:#b5d4f4;
+    --nav-link:#7aadd8;
+    --nav-on:  #ffffff;
+    --col:    700px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-weight:300;
+    font-size:17px;
+    line-height:1.75;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; inset:0 0 auto 0;
+    height:52px;
+    background:var(--nav-bg);
+    border-bottom:1px solid #0a1e36;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 2.5rem;
+    z-index:99;
+  }
+  .nav-name {
+    font-family:'Playfair Display',serif;
+    font-size:0.95rem;
+    color:var(--nav-name);
+    text-decoration:none;
+    letter-spacing:0.01em;
+    background:none; border:none; cursor:pointer;
+  }
+  nav ul { list-style:none; display:flex; gap:2rem; }
+  nav a {
+    font-size:0.75rem; letter-spacing:0.09em; text-transform:uppercase;
+    color:var(--nav-link); text-decoration:none; transition:color 0.15s;
+    background:none; border:none; cursor:pointer; font-family:inherit; padding:0;
+  }
+  nav a:hover { color:var(--nav-on); }
+  nav a.on    { color:var(--nav-on); }
+
+  /* ── PAGES ── */
+  .page { display:none; }
+  .page.active { display:block; }
+  main { max-width:var(--col); margin:0 auto; padding:6rem 2rem 4rem; }
+
+  @keyframes up {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:none; }
+  }
+  .fade { animation:up 0.5s ease both; }
+  .fd1  { animation-delay:0.05s; }
+  .fd2  { animation-delay:0.12s; }
+  .fd3  { animation-delay:0.19s; }
+  .fd4  { animation-delay:0.26s; }
+
+  /* ── HERO ── */
+  .hero {
+    display:grid; grid-template-columns:1fr 200px;
+    gap:3rem; align-items:start; padding-top:1rem;
+  }
+  h1 {
+    font-family:'Playfair Display',serif;
+    font-size:2.5rem; font-weight:600; line-height:1.12;
+    margin-bottom:0.4rem; color:var(--ink);
+  }
+  .role {
+    font-size:0.82rem; color:var(--muted);
+    letter-spacing:0.04em; margin-bottom:1.3rem; line-height:1.7;
+  }
+  .role strong { color:var(--accent); font-weight:500; }
+  .bio { font-size:1rem; color:#1e3a5f; margin-bottom:1.6rem; max-width:490px; }
+  .ctas { display:flex; gap:0.8rem; flex-wrap:wrap; }
+
+  .btn {
+    display:inline-block; padding:0.45rem 1.1rem;
+    font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    border:1px solid var(--ink); color:var(--ink);
+    text-decoration:none; transition:all 0.18s;
+    cursor:pointer; background:none; font-family:inherit;
+  }
+  .btn:hover { background:var(--ink); color:var(--paper); }
+  .btn.navy { background:var(--nav-bg); border-color:var(--nav-bg); color:#b5d4f4; }
+  .btn.navy:hover { background:#0a1b30; border-color:#0a1b30; color:#e6f1fb; }
+
+  .photo-box {
+    width:200px; height:260px;
+    background:#c5d8ef;
+    border:1px solid #a8c4e0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.65rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--muted);
+    text-align:center; flex-shrink:0; overflow:hidden;
+  }
+  .photo-box img { width:100%; height:100%; object-fit:cover; object-position:50% 15%; display:block; }
+
+  /* ── LABELS ── */
+  .label {
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent); font-weight:500; margin-bottom:1.8rem;
+  }
+
+  /* ── PAPERS ── */
+  .paper { padding:1.5rem 0; border-bottom:1px solid var(--rule); }
+  .paper:first-of-type { border-top:1px solid var(--rule); }
+  .paper-title {
+    font-family:'Playfair Display',serif;
+    font-size:1.08rem; font-weight:400; line-height:1.45; margin-bottom:0.3rem;
+  }
+  .paper-title a {
+    color:var(--ink); text-decoration:none;
+    background-image:linear-gradient(var(--bright),var(--bright));
+    background-size:0 1px; background-repeat:no-repeat;
+    background-position:0 100%; transition:background-size 0.25s;
+  }
+  .paper-title a:hover { background-size:100% 1px; }
+  .paper-meta { font-size:0.88rem; color:var(--muted); margin-bottom:0.5rem; }
+  .paper-meta em { font-style:italic; }
+  .chips { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.4rem; }
+  .chip {
+    font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
+    padding:0.1rem 0.55rem; border:1px solid var(--rule); color:var(--muted);
+  }
+  .chip.pub { border-color:#185FA580; color:var(--accent); }
+
+  .abstract-toggle {
+    background:none; border:none; padding:0;
+    font-size:0.75rem; color:var(--bright);
+    cursor:pointer; font-family:inherit;
+    margin-top:0.5rem; letter-spacing:0.03em;
+  }
+  .abstract-toggle:hover { text-decoration:underline; }
+  .abstract-body {
+    display:none; font-size:0.93rem; color:#1e3a5f;
+    margin-top:0.6rem; line-height:1.7;
+    padding-left:0.8rem; border-left:2px solid var(--rule);
+  }
+  .abstract-body.open { display:block; }
+
+  /* ── INTERESTS ── */
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; row-gap:0.7rem; }
+  .interest { display:flex; align-items:center; gap:0.55rem; font-size:0.92rem; }
+  .interest::before {
+    content:''; display:block; width:18px; height:1px;
+    background:var(--bright); flex-shrink:0;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem 2rem; }
+  .c-label {
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:0.2rem;
+  }
+  .c-val { font-size:0.9rem; }
+  .c-val a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule); transition:border-color 0.2s; }
+  .c-val a:hover { border-bottom-color:var(--bright); }
+
+  /* ── WRITING ── */
+  .post-row {
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:0.9rem 0; border-bottom:1px solid var(--rule);
+    text-decoration:none; color:var(--ink);
+    cursor:pointer; transition:padding-left 0.2s;
+  }
+  .post-row:first-of-type { border-top:1px solid var(--rule); }
+  .post-row:hover { padding-left:0.5rem; }
+  .post-t { font-family:'Playfair Display',serif; font-size:0.97rem; font-weight:400; }
+  .post-d { font-size:0.75rem; color:var(--muted); margin-left:1rem; flex-shrink:0; }
+
+  /* ── DATAVIZ ── */
+  .viz-grid { display:grid; gap:2rem; }
+  .viz-card { border:1px solid var(--rule); padding:1.2rem; background:#ffffff; }
+  .viz-title { font-family:'Playfair Display',serif; font-size:0.95rem; margin-bottom:0.3rem; }
+  .viz-desc  { font-size:0.82rem; color:var(--muted); margin-bottom:1rem; }
+  .viz-embed {
+    background:var(--paper); min-height:300px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.75rem; color:var(--muted); letter-spacing:0.06em;
+    text-transform:uppercase; text-align:center; padding:1rem;
+    border:1px dashed var(--rule);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    max-width:var(--col); margin:3rem auto 0;
+    padding:1.5rem 2rem;
+    background:var(--nav-bg);
+    font-size:0.73rem; color:var(--nav-link);
+    display:flex; justify-content:space-between;
+  }
+  footer a { color:var(--nav-name); text-decoration:none; border:none; }
+  footer a:hover { text-decoration:underline; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 680px) {
+
+    /* Nav */
+    nav { padding: 0 1.2rem; }
+    .nav-name { font-size: 0.82rem; }
+    nav ul { gap: 1.1rem; }
+    nav a { font-size: 0.65rem; letter-spacing: 0.06em; }
+
+    /* Main padding */
+    main { padding: 5rem 1.2rem 3rem; }
+
+    /* Hero: stack vertically */
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .photo-box {
+      width: 140px; height: 175px;
+      margin: 0 auto;
+    }
+
+    /* Headings */
+    h1 { font-size: 2rem; }
+
+    /* Interests & contact: single column */
+    .grid2 { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+
+    /* Footer */
+    footer {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 1.5rem 1.2rem;
+    }
+  }
+
+
+  /* ── DARK MODE ── */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:      #d6e8f7;
+      --paper:    #0d1b2a;
+      --muted:    #7aadd8;
+      --accent:   #5fa8e0;
+      --bright:   #78bfee;
+      --rule:     #1e3a55;
+      --nav-bg:   #07111c;
+      --nav-name: #b5d4f4;
+      --nav-link: #5a90bc;
+      --nav-on:   #ffffff;
+    }
+
+    body { background: var(--paper); color: var(--ink); }
+
+    /* Hero */
+    h1 { color: var(--ink); }
+    .bio { color: #a8c8e8; }
+    .role { color: var(--muted); }
+
+    /* Buttons */
+    .btn { border-color: #2a4a6a; color: var(--ink); }
+    .btn:hover { background: var(--ink); color: var(--paper); }
+    .btn.navy { background: #07111c; border-color: #1e3a55; color: var(--nav-name); }
+    .btn.navy:hover { background: #0a1929; }
+
+    /* Photo box */
+    .photo-box { background: #1a3a55; border-color: #2a5070; }
+
+    /* Papers */
+    .paper { border-bottom-color: var(--rule); }
+    .paper:first-of-type { border-top-color: var(--rule); }
+    .paper-title a { color: var(--ink); }
+    .paper-meta { color: var(--muted); }
+    .chip { border-color: var(--rule); color: var(--muted); }
+    .chip.pub { border-color: #2a5a8a; color: var(--accent); }
+    .abstract-body { color: #a8c8e8; border-left-color: var(--rule); }
+
+    /* Interests */
+    .interest { color: var(--ink); }
+
+    /* Contact */
+    .c-label { color: var(--muted); }
+    .c-val a { color: var(--ink); border-bottom-color: var(--rule); }
+
+    /* Writing */
+    .post-row { color: var(--ink); border-bottom-color: var(--rule); }
+    .post-row:first-of-type { border-top-color: var(--rule); }
+    .post-d { color: var(--muted); }
+
+    /* Dataviz */
+    .viz-card { background: #0f2035; border-color: var(--rule); }
+    .viz-title { color: var(--ink); }
+    .viz-desc { color: var(--muted); }
+    .viz-embed { background: #0d1b2a; border-color: var(--rule); color: var(--muted); }
+
+    /* Section labels */
+    .label { color: var(--accent); }
+
+    /* Dividers */
+    div[style*="border-top"] { border-top-color: var(--rule) !important; }
+
+    /* Sublabels */
+    p[style*="color:var(--muted)"] { color: var(--muted) !important; }
+
+    /* Footer */
+    footer { background: #07111c; color: var(--nav-link); }
+  }
+
+
+  /* ── DATAVIZ ENTRIES ── */
+  .dv-entries { display:grid; gap:0; }
+
+  .dv-entry {
+    border-top: 1px solid var(--rule);
+  }
+  .dv-entry:last-child { border-bottom: 1px solid var(--rule); }
+
+  .dv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 0;
+    cursor: pointer;
+    transition: background 0.15s;
+    gap: 1rem;
+  }
+  .dv-header:hover .dv-title { color: var(--bright); }
+
+  .dv-header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .dv-arrow {
+    font-size: 0.65rem;
+    color: var(--accent);
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+    transition: transform 0.25s;
+    display: inline-block;
+  }
+  .dv-arrow.open { transform: rotate(90deg); }
+
+  .dv-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+    transition: color 0.2s;
+  }
+
+  .dv-subtitle {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+
+  .dv-expand-hint {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .dv-placeholder { opacity: 0.5; cursor: default; }
+  .dv-placeholder:hover .dv-title { color: var(--ink); }
+
+  .dv-body {
+    padding-bottom: 2.5rem;
+  }
+
+  .dv-chart-main { margin-bottom: 2rem; }
+
+  .dv-narrative {
+    font-size: 0.95rem;
+    color: #1e3a5f;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+  .dv-narrative p { margin-bottom: 1rem; }
+  .dv-narrative p:last-child { margin-bottom: 0; }
+  .dv-narrative a { color: var(--bright); }
+
+  .dv-source {
+    font-size: 0.82rem !important;
+    color: var(--muted) !important;
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 0.8rem;
+  }
+
+  .dv-chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 680px) {
+    .dv-chart-grid { grid-template-columns: 1fr; }
+    .dv-expand-hint { display: none; }
+  }
+
+  /* Dark mode dataviz */
+  @media (prefers-color-scheme: dark) {
+    .dv-narrative { color: #a8c8e8; }
+    .dv-title { color: var(--ink); }
+  }
+
+
+  .dv-section-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.8rem !important;
+    margin-top: 0.3rem;
+  }
+  .dv-chart-single { margin-bottom: 0; }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="nav-name" onclick="show('home')">Didier Hermida Giraldo</button>
+  <ul>
+    <li><a href="#" onclick="show('home');return false;"     id="tab-home"    class="on">Home</a></li>
+    <li><a href="#" onclick="show('research');return false;" id="tab-research">Research</a></li>
+    <li><a href="#" onclick="show('dataviz');return false;"  id="tab-dataviz">Data</a></li>
+    <li><a href="#" onclick="show('writing');return false;"  id="tab-writing">Writing</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<div class="page active" id="page-home">
+<main>
+  <div class="hero fade">
+    <div>
+      <h1>Didier<br>Hermida Giraldo</h1>
+      <p class="role">
+        Economist · <strong>Banco de la República</strong><br>
+        Central Bank of Colombia
+      </p>
+      <p class="bio">
+        I am an economist working on labour markets and development economics,
+        with a focus on migration, informality, and structural unemployment
+        in Latin America — particularly Colombia.
+      </p>
+      <div class="ctas">
+        <a href="cv.pdf" class="btn navy" target="_blank">CV (PDF)</a>
+        <button class="btn" onclick="show('research')">Research</button>
+        <button class="btn" onclick="show('dataviz')">Data Viz</button>
+      </div>
+    </div>
+    <div class="photo-box">
+      <img src="photo.jpg" alt="Didier Hermida Giraldo">
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule)">
+    <p class="label fd1 fade">Recent work</p>
+
+    <div class="paper fd1 fade">
+      <p class="paper-title"><a href="https://doi.org/10.1177/01979183231162626" target="_blank">The Labor Market Effect of South-to-South Migration: Evidence From the Venezuelan Crisis</a></p>
+      <p class="paper-meta">with L. Bonilla-Mejía, L.F. Morales & L.A. Flórez · <em>International Migration Review</em>, 58(2), pp. 764–799, 2024</p>
+      <div class="chips"><span class="chip pub">Published</span></div>
+    </div>
+
+    <div class="paper fd2 fade">
+      <p class="paper-title"><a href="https://doi.org/10.1086/726758" target="_blank">Is the COVID-19 Pandemic Fast-Tracking Automation in Developing Countries? Evidence from Colombia</a></p>
+      <p class="paper-meta">with L. Bonilla-Mejía, L.A. Flórez, F. Lasso, L.F. Morales, J.J. Ospina & J. Pulido · <em>Journal of Human Capital</em>, 17(4), pp. 593–616, 2023</p>
+      <div class="chips"><span class="chip pub">Published</span></div>
+    </div>
+
+    <div style="margin-top:1.2rem">
+      <button class="btn" onclick="show('research')">All research →</button>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- ══════════════════ RESEARCH ══════════════════ -->
+<div class="page" id="page-research">
+<main>
+  <p class="label fade">Research</p>
+
+  <p style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;" class="fade fd1">Publications</p>
+
+  <div class="paper fade fd1">
+    <p class="paper-title"><a href="https://doi.org/10.1177/01979183231162626" target="_blank">The Labor Market Effect of South-to-South Migration: Evidence From the Venezuelan Crisis</a></p>
+    <p class="paper-meta">with L. Bonilla-Mejía, L.F. Morales & L.A. Flórez · <em>International Migration Review</em>, Vol. 58(2), pp. 764–799, 2024</p>
+    <div class="chips"><span class="chip pub">Published</span></div>
+    <button class="abstract-toggle" onclick="toggleAbs(this)">+ Abstract</button>
+    <p class="abstract-body">Following Venezuela's economic collapse, millions have fled the country. This article assesses the impact of the migration wave on the labor market outcomes of migrants and nonmigrants in Colombia, the major recipient of Venezuelan refugees and migrants. We address potential endogeneity problems using a Bartik-type instrumental variable approach that exploits the regional variation of migrant networks and the timing and intensity of the Venezuelan economic crisis. While migration increases unemployment among migrants, it has no significant effect on nonmigrants' unemployment — migration significantly reduces the labor participation of nonmigrants, offsetting its negative impact on employment.</p>
+  </div>
+
+  <div class="paper fade fd1">
+    <p class="paper-title"><a href="https://doi.org/10.1086/726758" target="_blank">Is the COVID-19 Pandemic Fast-Tracking Automation in Developing Countries? Evidence from Colombia</a></p>
+    <p class="paper-meta">with L. Bonilla-Mejía, L.A. Flórez, F. Lasso, L.F. Morales, J.J. Ospina & J. Pulido · <em>Journal of Human Capital</em>, Vol. 17(4), pp. 593–616, 2023</p>
+    <div class="chips"><span class="chip pub">Published</span></div>
+    <button class="abstract-toggle" onclick="toggleAbs(this)">+ Abstract</button>
+    <p class="abstract-body">We assess the effect of the COVID-19 pandemic on the automation process in Colombia, a country with low R&D and productivity and high labor informality. Using event-study models, we evaluate the differential effect of the pandemic on job openings and salaried employment by the potential degree of automation of each occupation. Both vacancies and salaried employment declined more in highly automatable occupations, though there is no evidence of persistent effects. Automation mainly affected the labor market of females, individuals over 40 years old, and low-paid occupations.</p>
+  </div>
+
+  <div class="paper fade fd2">
+    <p class="paper-title"><a href="https://doi.org/10.1111/caje.12549" target="_blank">Effects of the Covid-19 Pandemic on the Colombian Labor Market: Disentangling the Effect of Sector-Specific Mobility Restrictions</a></p>
+    <p class="paper-meta">with L.F. Morales, L. Bonilla-Mejía, J. Pulido, L.A. Flórez, K. Pulido-Mahecha & F. Lasso · <em>Canadian Journal of Economics</em>, Vol. 55, Special Issue, pp. 308–357, 2022</p>
+    <div class="chips"><span class="chip pub">Published</span></div>
+    <button class="abstract-toggle" onclick="toggleAbs(this)">+ Abstract</button>
+    <p class="abstract-body">We assess the effect of the COVID-19 pandemic and particularly sector-specific mobility restrictions on the Colombian labour market. Exploiting the sectoral and temporal variation of restriction policies, we find that mobility restrictions reduced employment, accounting for approximately a quarter of total job loss between February and April 2020. The remaining three quarters are attributable to the disease's regional patterns and other epidemiological and economic factors. Most of the employment effect is driven by salaried workers, while self-employment was more responsive to disease spread.</p>
+  </div>
+
+  <p style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;" class="fade fd2">Working Papers</p>
+
+  <div class="paper fade fd2">
+    <p class="paper-title"><a href="https://repositorio.banrep.gov.co/server/api/core/bitstreams/6d96c815-973e-4746-879b-17390c36b2e4/content" target="_blank">The Heterogeneous Effect of Minimum Wage on Labor Market Flows in Colombia</a></p>
+    <p class="paper-meta">with L.F. Morales & L.A. Flórez · <em>Borradores de Economía</em>, No. 1213, 2022</p>
+    <div class="chips"><span class="chip">Working Paper</span></div>
+  </div>
+
+  <div class="paper fade fd3">
+    <p class="paper-title"><a href="https://repositorio.banrep.gov.co/server/api/core/bitstreams/f236b3fb-f49b-4bbf-aba5-753bd677cba0/content" target="_blank">The Interaction between Formal and Informal Labor Dynamics: Revealing Job Flows from Household Surveys</a></p>
+    <p class="paper-meta">with L.F. Morales & E. Dávalos · <em>Borradores de Economía</em>, No. 1090, 2019</p>
+    <div class="chips"><span class="chip">Working Paper</span></div>
+  </div>
+
+  <p style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;" class="fade fd3">Other Publications</p>
+
+  <div class="paper fade fd3">
+    <p class="paper-title"><a href="https://repositorio.banrep.gov.co/bitstream/handle/20.500.12134/11354/Espe111.pdf" target="_blank">Explorando las brechas de género en Colombia</a></p>
+    <p class="paper-meta">with M.T. Ramírez-Giraldo (ed.) · <em>Ensayos sobre Política Económica</em>, No. 111, 2026</p>
+    <div class="chips"><span class="chip">Policy Report</span></div>
+  </div>
+
+  <div class="paper fade fd4">
+    <p class="paper-title"><a href="https://repositorio.banrep.gov.co/server/api/core/bitstreams/ce2d9546-4ac1-4079-b30f-0c88b0b6ee7a/content" target="_blank">Mejor desempeño del empleo asalariado, y análisis del mercado laboral colombiano en el contexto latinoamericano</a></p>
+    <p class="paper-meta"><em>Reportes del Mercado Laboral</em>, No. 36, 2025</p>
+    <div class="chips"><span class="chip">Policy Report</span></div>
+  </div>
+
+  <div class="paper fade fd4">
+    <p class="paper-title"><a href="https://repositorio.banrep.gov.co/server/api/core/bitstreams/f1f8571c-9b6d-4c07-b203-6baa358988ca/content" target="_blank">Efectos macroeconómicos del salario mínimo en Colombia</a></p>
+    <p class="paper-meta">with L. Arango (ed.) · <em>Ensayos sobre Política Económica</em>, No. 103, 2022</p>
+    <div class="chips"><span class="chip">Policy Report</span></div>
+  </div>
+
+  <div class="paper fade fd4">
+    <p class="paper-title"><a href="https://repositorio.banrep.gov.co/server/api/core/bitstreams/e02c5056-bb91-429a-bbb3-820f4d0cf839/content" target="_blank">Migración desde Venezuela en Colombia: caracterización del fenómeno y análisis de los efectos macroeconómicos</a></p>
+    <p class="paper-meta">with A. Tribín (ed.) · <em>Ensayos sobre Política Económica</em>, No. 97, 2020</p>
+    <div class="chips"><span class="chip">Policy Report</span></div>
+  </div>
+
+  <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule)">
+    <p class="label">Research Interests</p>
+    <div class="grid2">
+      <div class="interest">Labour Economics</div>
+      <div class="interest">Development Economics</div>
+      <div class="interest">Migration &amp; Displacement</div>
+      <div class="interest">Structural Unemployment</div>
+      <div class="interest">Informality</div>
+      <div class="interest">Labour Market Power</div>
+    </div>
+  </div>
+
+  <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--rule)">
+    <p class="label">Profiles</p>
+    <div class="contact-grid">
+      <div><p class="c-label">Google Scholar</p><p class="c-val"><a href="https://scholar.google.com/citations?user=Km6TnzAAAAAJ" target="_blank">Profile →</a></p></div>
+      <div><p class="c-label">IDEAS / RePEC</p><p class="c-val"><a href="https://ideas.repec.org/f/phe797.html" target="_blank">Profile →</a></p></div>
+      <div><p class="c-label">Research Group</p><p class="c-val"><a href="https://investiga.banrep.gov.co/es/grupos-de-investigacion/grupo-de-analisis-del-mercado-laboral-gamla" target="_blank">GAMLA — Grupo de Análisis del Mercado Laboral →</a></p></div>
+      <div><p class="c-label">Institution</p><p class="c-val">Economist · Banco de la República<br>Central Bank of Colombia</p></div>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- ══════════════════ DATAVIZ ══════════════════ -->
+<div class="page" id="page-dataviz">
+<main>
+  <p class="label fade">Data Visualisation</p>
+  <p class="fade fd1" style="font-size:0.92rem;color:#1e3a5f;margin-bottom:2.5rem;max-width:520px;">
+    Interactive data stories on Colombian history and labour markets. Made with <a href="https://www.datawrapper.de" target="_blank" style="color:var(--bright)">Datawrapper</a>.
+  </p>
+
+  <div class="dv-entries fade fd1">
+
+    <!-- ── ENTRY 1: Venezuelan Migration ── -->
+    <div class="dv-entry">
+      <div class="dv-header" onclick="toggleEntry(this)">
+        <div class="dv-header-left">
+          <span class="dv-arrow">▶</span>
+          <div>
+            <p class="dv-title">Venezuelan Immigration into Colombia, 2015–2026</p>
+            <p class="dv-subtitle">Immigrant stock measurement · Labour market outcomes</p>
+          </div>
+        </div>
+        <span class="dv-expand-hint">Click to explore</span>
+      </div>
+
+      <div class="dv-body" style="display:none;">
+
+        <!-- Main chart -->
+        <div class="dv-chart-main">
+          <div style="min-height:482px" id="datawrapper-vis-g7bjx"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/g7bjx/embed.js" charset="utf-8" data-target="#datawrapper-vis-g7bjx"></script><noscript><img src="https://datawrapper.dwcdn.net/g7bjx/full.png" alt="Venezuelan immigrants as share of Colombia population" /></noscript></div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="dv-narrative">
+          <p class="dv-section-head">Measuring the stock of Venezuelan immigrants in Colombia</p>
+          <p>In household surveys, immigrants are typically identified through retrospective questions. One of the most common is "Where did you live five years ago?" In Colombia, the largest inflow of Venezuelan immigrants occurred between 2018 and 2019 and then began to decline. This means that if we ask this question today (2026), a large share of the immigrants who arrived before 2021 goes uncounted. The graph shows this clearly: measured this way, immigrants peak at 3.9% of Colombia's population and then fade quickly to the current 1%.</p>
+          <p>A second approach is to use "Where were you born?", which captures Venezuela-born people. However, immigration from Venezuela also includes returnees: Colombians who emigrated to Venezuela during the 1980s and 1990s and came back in the 2010s. This question alone cannot capture them.</p>
+          <p>A third approach combines "Where were you born?" with questions about ties to Venezuela for those not born there; for example, whether the person ever lived or worked in Venezuela. The goal is to identify both the Venezuela-born population and people born elsewhere (including Colombia) who lived in Venezuela at some point and now reside in Colombia. In my view, this is the best measure of the stock of Venezuelan immigrants in Colombia. Unfortunately, the question about living outside Colombia was only introduced in 2021, so the resulting time series is very short.</p>
+          <p>I ruled out using citizenship, because Venezuelan immigrants with dual nationality tend to underreport their Venezuelan nationality in household surveys.</p>
+          <p>Given these constraints, I prefer the Venezuela-born definition: it offers a long time series, and although returnees were a significant share at the start of the wave, they ended up accounting for less than 15% of immigrants. This measure tells us that the peak of the Venezuela-born population as a share of Colombia's population was reached in 2022 with around 4.77%. It then started to diminish until the current 4%.</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="dv-narrative">
+          <p class="dv-section-head">Venezuelan immigrants and their labour market outcomes</p>
+          <p>At the peak of the immigration wave in 2019, the unemployment-rate gap between Venezuelan immigrants and the rest of the population was about 5.5 percentage points. This gap was mostly driven by immigrants' higher labour force participation rate (LFPR): roughly 80%, compared with about 65% for the rest of the population.</p>
+          <p>After the pandemic, Colombia's unemployment rate fell to a historic low, and the gap between the two populations closed. The mechanical explanation is that immigrants' employment-to-population rate (ER) recovered to its pre-pandemic level while their LFPR did not. With less pressure from the supply side, immigrants' unemployment rate fell until it matched that of the rest of the population.</p>
+          <p>Nevertheless, the quality of immigrants' employment remains poor: the informality rate is around 76.5% for this group, versus about 51.5% for the rest of the population.</p>
+        </div>
+
+        <!-- Additional charts -->
+        <div class="dv-chart-single">
+          <div style="min-height:458px" id="datawrapper-vis-59SdI"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/59SdI/embed.js" charset="utf-8" data-target="#datawrapper-vis-59SdI"></script><noscript><img src="https://datawrapper.dwcdn.net/59SdI/full.png" alt="Unemployment Rate in Colombia" /></noscript></div>
+        </div>
+
+        <div class="dv-chart-single" style="margin-top:1.5rem;">
+          <div style="min-height:485px" id="datawrapper-vis-8PUOw"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/8PUOw/embed.js" charset="utf-8" data-target="#datawrapper-vis-8PUOw"></script><noscript><img src="https://datawrapper.dwcdn.net/8PUOw/full.png" alt="Employment to Population Rate and Labour Force Participation Rate in Colombia" /></noscript></div>
+        </div>
+
+        <div class="dv-chart-single" style="margin-top:1.5rem;">
+          <div style="min-height:458px" id="datawrapper-vis-K8aRD"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/K8aRD/embed.js" charset="utf-8" data-target="#datawrapper-vis-K8aRD"></script><noscript><img src="https://datawrapper.dwcdn.net/K8aRD/full.png" alt="Informality Rate in Colombia" /></noscript></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── ENTRY 2: 1918 pandemic ── -->
+    <div class="dv-entry">
+      <div class="dv-header" onclick="toggleEntry(this)">
+        <div class="dv-header-left">
+          <span class="dv-arrow">▶</span>
+          <div>
+            <p class="dv-title">The 1918 Pandemic (Spanish Flu) in Bogotá, Colombia</p>
+            <p class="dv-subtitle">Historical data reconstruction · El Tiempo newspaper archive</p>
+          </div>
+        </div>
+        <span class="dv-expand-hint">Click to explore</span>
+      </div>
+
+      <div class="dv-body" style="display:none;">
+
+        <!-- Main chart always on top -->
+        <div class="dv-chart-main">
+          <div style="min-height:450px" id="datawrapper-vis-EYn3d"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/EYn3d/embed.js" charset="utf-8" data-target="#datawrapper-vis-EYn3d"></script><noscript><img src="https://datawrapper.dwcdn.net/EYn3d/full.png" alt="Daily Deaths during the 1918 Spanish Flu Pandemic in Bogotá, Colombia" /></noscript></div>
+        </div>
+
+        <!-- Narrative -->
+        <div class="dv-narrative">
+          <p>The 1918–1920 flu pandemic, popularly known as the "Spanish Flu," arrived in Bogotá, Colombia, in early October 1918. It was part of the second wave of the pandemic, which reached South America in the second half of 1918.</p>
+          <p>Daily registered deaths reached a peak of 148, and over the course of one month the city accumulated a death toll of approximately 1,568. At the time, Bogotá was a small city of about 144,000 inhabitants, representing a mortality rate of approximately 1%. For comparison, according to Bogotá's Secretary of Health, 15,503 people died in Bogotá in a single year of the COVID-19 pandemic<sup><a href="https://bogota.gov.co/mi-ciudad/salud/balance-de-fallecidos-por-covid-19-en-bogota" target="_blank">¹</a></sup>; in 2020, the city had around 7.7 million inhabitants, meaning deaths accounted for approximately 0.2% of the total population.</p>
+          <p>During the 1918 pandemic, a large proportion of deaths occurred at home, due to the lack of adequate healthcare services, while the rest took place in the few hospitals the city had at the time.</p>
+          <p>The data was reconstructed from the <em>El Tiempo</em> newspaper archive, available through Google Newspapers. Since official public health records from this period are incomplete, digitized newspaper archives serve as a valuable, and often underexplored, source for historical research.</p>
+        </div>
+
+        <!-- Secondary charts -->
+        <div class="dv-chart-single" style="margin-top:1.5rem;">
+          <div style="min-height:423px" id="datawrapper-vis-w3hmU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/w3hmU/embed.js" charset="utf-8" data-target="#datawrapper-vis-w3hmU"></script><noscript><img src="https://datawrapper.dwcdn.net/w3hmU/full.png" alt="Mortality in Bogotá, Colombia (1918)" /></noscript></div>
+        </div>
+
+        <div class="dv-chart-single" style="margin-top:1.5rem;">
+          <div style="min-height:557px" id="datawrapper-vis-ZouwW"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/ZouwW/embed.js" charset="utf-8" data-target="#datawrapper-vis-ZouwW"></script><noscript><img src="https://datawrapper.dwcdn.net/ZouwW/full.png" alt="Where People Died: 1918 Spanish Flu in Bogotá, Colombia" /></noscript></div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</main>
+</div>
+
+<!-- ══════════════════ WRITING ══════════════════ -->
+<div class="page" id="page-writing">
+<main>
+  <p class="label fade">Writing</p>
+  <p class="fade fd1" style="font-size:0.9rem;color:#1e3a5f;margin-bottom:2rem;max-width:500px;">Occasional essays on film, literature, and ideas. Written in Spanish.</p>
+
+  <a class="post-row fade fd1" href="posts/playtime.html"><span class="post-t">Playtime, París y los tiempos que corren</span><span class="post-d">Ago 2024</span></a>
+  <a class="post-row fade fd1" href="posts/caminar.html"><span class="post-t">Prefiero caminar a tientas</span><span class="post-d">Mar 2024</span></a>
+  <a class="post-row fade fd2" href="posts/hayek.html"><span class="post-t">Hayek y el conocimiento</span><span class="post-d">Feb 2019</span></a>
+  <a class="post-row fade fd2" href="posts/constructivismo.html"><span class="post-t">Constructivismo*</span><span class="post-d">Sep 2018</span></a>
+  <a class="post-row fade fd3" href="posts/casa-abuelos.html"><span class="post-t">La casa de mis abuelos</span><span class="post-d">Jul 2018</span></a>
+  <a class="post-row fade fd3" href="posts/intercambio.html"><span class="post-t">El poder del intercambio</span><span class="post-d">Abr 2018</span></a>
+  <a class="post-row fade fd4" href="posts/sabato.html"><span class="post-t">Sabato y la modernidad</span><span class="post-d">Mar 2017</span></a>
+</main>
+</div>
+
+<footer>
+  <span>Didier Hermida Giraldo</span>
+  <span>
+    <a href="https://scholar.google.com/citations?user=Km6TnzAAAAAJ" target="_blank">Google Scholar</a> ·
+    <a href="https://ideas.repec.org/f/phe797.html" target="_blank">IDEAS/RePEC</a>
+  </span>
+</footer>
+
+<script>
+  function show(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('on'));
+    document.getElementById('page-' + page).classList.add('active');
+    const tab = document.getElementById('tab-' + page);
+    if (tab) tab.classList.add('on');
+    window.scrollTo({ top:0, behavior:'smooth' });
+  }
+  function toggleAbs(btn) {
+    const body = btn.nextElementSibling;
+    body.classList.toggle('open');
+    btn.textContent = body.classList.contains('open') ? '− Hide abstract' : '+ Abstract';
+  }
+
+  function toggleEntry(header) {
+    if (header.classList.contains('dv-placeholder')) return;
+    const body = header.nextElementSibling;
+    if (!body || !body.classList.contains('dv-body')) return;
+    const arrow = header.querySelector('.dv-arrow');
+    const hint  = header.querySelector('.dv-expand-hint');
+    const isOpen = body.style.display !== 'none';
+    body.style.display = isOpen ? 'none' : 'block';
+    arrow.classList.toggle('open', !isOpen);
+    if (hint) hint.textContent = isOpen ? 'Click to explore' : 'Click to collapse';
+  }
+</script>
+</body>
+</html>
