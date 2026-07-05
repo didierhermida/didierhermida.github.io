@@ -444,7 +444,7 @@
   <ul>
     <li><a href="#" onclick="show('home');return false;"     id="tab-home"    class="on">Home</a></li>
     <li><a href="#" onclick="show('research');return false;" id="tab-research">Research</a></li>
-    <li><a href="#" onclick="show('dataviz');return false;"  id="tab-dataviz">Data</a></li>
+    <li><a href="data/">Data</a></li>
     <li><a href="#" onclick="show('writing');return false;"  id="tab-writing">Writing</a></li>
   </ul>
 </nav>
@@ -460,12 +460,12 @@
         Central Bank of Colombia
       </p>
       <p class="bio">
-        I am an economist working on labour markets with a focus in Latin America, particularly Colombia.
+        I am an economist working on labour markets with a focus in Latin America — particularly Colombia.
       </p>
       <div class="ctas">
         <a href="cv.pdf" class="btn navy" target="_blank">CV (PDF)</a>
         <button class="btn" onclick="show('research')">Research</button>
-        <button class="btn" onclick="show('dataviz')">Data Viz</button>
+        <a href="data/" class="btn">Data Viz</a>
       </div>
     </div>
     <div class="photo-box">
@@ -571,7 +571,7 @@
     <div class="grid2">
       <div class="interest">Labour Economics</div>
       <div class="interest">Development Economics</div>
-      <div class="interest">Migration</div>
+      <div class="interest">Migration &amp; Displacement</div>
       <div class="interest">Structural Unemployment</div>
       <div class="interest">Informality</div>
       <div class="interest">Labour Market Power</div>
@@ -724,6 +724,14 @@
 </footer>
 
 <script>
+  // On load, check URL hash and show the right tab
+  window.addEventListener('load', function() {
+    const hash = window.location.hash.slice(1);
+    if (hash && ['home','research','writing'].includes(hash)) {
+      show(hash);
+    }
+  });
+
   function show(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('on'));
