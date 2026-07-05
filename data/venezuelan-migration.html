@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venezuelan Immigration into Colombia, 2015–2026 — Didier Hermida Giraldo</title>
+<meta name="description" content="How to measure the stock of Venezuelan immigrants in Colombia and their labour market outcomes, 2015–2026. Interactive data visualisation by Didier Hermida Giraldo.">
+<meta name="keywords" content="Venezuelan immigration Colombia, Venezuelan migrants labour market, informality Colombia, Venezuelan refugees Colombia">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0c2340;--paper:#f0f4fa;--muted:#4a6f9a;--accent:#185FA5;--bright:#378ADD;--rule:#c5d8ef;--nav-bg:#0c2340;--nav-name:#b5d4f4;--nav-link:#7aadd8;--col:720px;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.75;}
+  nav{position:fixed;inset:0 0 auto 0;height:52px;background:var(--nav-bg);border-bottom:1px solid #0a1e36;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:99;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--nav-name);text-decoration:none;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav a{font-size:0.75rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--nav-link);text-decoration:none;transition:color 0.15s;background:none;border:none;font-family:inherit;padding:0;}
+  nav a:hover{color:#fff;}
+  nav a.on{color:#fff;}
+  main{max-width:var(--col);margin:0 auto;padding:6rem 2rem 5rem;}
+  .label{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1rem;}
+  h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;line-height:1.2;margin-bottom:0.8rem;color:var(--ink);}
+  h2{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;margin:2.5rem 0 0.8rem;color:var(--ink);}
+  p{margin-bottom:1.1rem;color:#1e3a5f;font-size:0.97rem;}
+  a{color:var(--bright);}
+  .meta{font-size:0.78rem;color:var(--muted);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule);}
+  .chart{margin:2rem 0;}
+  footer{max-width:var(--col);margin:3rem auto 0;padding:1.5rem 2rem;background:var(--nav-bg);font-size:0.73rem;color:var(--nav-link);display:flex;justify-content:space-between;}
+  footer a{color:var(--nav-name);text-decoration:none;}
+  @media(prefers-color-scheme:dark){
+    :root{--ink:#d6e8f7;--paper:#0d1b2a;--muted:#7aadd8;--accent:#5fa8e0;--bright:#78bfee;--rule:#1e3a55;}
+    body{background:var(--paper);color:var(--ink);}
+    p{color:#a8c8e8;}
+    h1,h2{color:var(--ink);}
+  }
+  @media(max-width:680px){nav{padding:0 1.2rem;}main{padding:5rem 1.2rem 3rem;}h1{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="../index.html">Didier Hermida Giraldo</a>
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#research">Research</a></li>
+    <li><a href="index.html" class="on">Data</a></li>
+    <li><a href="../index.html#writing">Writing</a></li>
+  </ul>
+</nav>
+<main>
+  <p class="label">Labour Markets · Migration</p>
+  <h1>Venezuelan Immigration into Colombia, 2015–2026</h1>
+  <p class="meta">Didier Hermida Giraldo · Banco de la República · Data from DANE household surveys</p>
+
+  <div class="chart">
+    <div style="min-height:482px" id="datawrapper-vis-g7bjx"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/g7bjx/embed.js" charset="utf-8" data-target="#datawrapper-vis-g7bjx"></script><noscript><img src="https://datawrapper.dwcdn.net/g7bjx/full.png" alt="Venezuelan immigrants as share of Colombia population" /></noscript></div>
+  </div>
+
+  <h2>Measuring the stock of Venezuelan immigrants in Colombia</h2>
+  <p>In household surveys, immigrants are typically identified through retrospective questions. One of the most common is "Where did you live five years ago?" In Colombia, the largest inflow of Venezuelan immigrants occurred between 2018 and 2019 and then began to decline. This means that if we ask this question today (2026), a large share of the immigrants who arrived before 2021 goes uncounted. The graph shows this clearly: measured this way, immigrants peak at 3.9% of Colombia's population and then fade quickly to the current 1%.</p>
+  <p>A second approach is to use "Where were you born?", which captures Venezuela-born people. However, immigration from Venezuela also includes returnees: Colombians who emigrated to Venezuela during the 1980s and 1990s and came back in the 2010s. This question alone cannot capture them.</p>
+  <p>A third approach combines "Where were you born?" with questions about ties to Venezuela for those not born there; for example, whether the person ever lived or worked in Venezuela. The goal is to identify both the Venezuela-born population and people born elsewhere (including Colombia) who lived in Venezuela at some point and now reside in Colombia. In my view, this is the best measure of the stock of Venezuelan immigrants in Colombia. Unfortunately, the question about living outside Colombia was only introduced in 2021, so the resulting time series is very short.</p>
+  <p>I ruled out using citizenship, because Venezuelan immigrants with dual nationality tend to underreport their Venezuelan nationality in household surveys.</p>
+  <p>Given these constraints, I prefer the Venezuela-born definition: it offers a long time series, and although returnees were a significant share at the start of the wave, they ended up accounting for less than 15% of immigrants. This measure tells us that the peak of the Venezuela-born population as a share of Colombia's population was reached in 2022 with around 4.77%. It then started to diminish until the current 4%.</p>
+
+  <h2>Venezuelan immigrants and their labour market outcomes</h2>
+  <p>At the peak of the immigration wave in 2019, the unemployment-rate gap between Venezuelan immigrants and the rest of the population was about 5.5 percentage points. This gap was mostly driven by immigrants' higher labour force participation rate (LFPR): roughly 80%, compared with about 65% for the rest of the population.</p>
+  <p>After the pandemic, Colombia's unemployment rate fell to a historic low, and the gap between the two populations closed. The mechanical explanation is that immigrants' employment-to-population rate (ER) recovered to its pre-pandemic level while their LFPR did not. With less pressure from the supply side, immigrants' unemployment rate fell until it matched that of the rest of the population.</p>
+  <p>Nevertheless, the quality of immigrants' employment remains poor: the informality rate is around 76.5% for this group, versus about 51.5% for the rest of the population.</p>
+
+  <div class="chart">
+    <div style="min-height:458px" id="datawrapper-vis-59SdI"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/59SdI/embed.js" charset="utf-8" data-target="#datawrapper-vis-59SdI"></script><noscript><img src="https://datawrapper.dwcdn.net/59SdI/full.png" alt="Unemployment Rate in Colombia" /></noscript></div>
+  </div>
+
+  <div class="chart">
+    <div style="min-height:485px" id="datawrapper-vis-8PUOw"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/8PUOw/embed.js" charset="utf-8" data-target="#datawrapper-vis-8PUOw"></script><noscript><img src="https://datawrapper.dwcdn.net/8PUOw/full.png" alt="Employment to Population Rate and Labour Force Participation Rate in Colombia" /></noscript></div>
+  </div>
+
+  <div class="chart">
+    <div style="min-height:458px" id="datawrapper-vis-K8aRD"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/K8aRD/embed.js" charset="utf-8" data-target="#datawrapper-vis-K8aRD"></script><noscript><img src="https://datawrapper.dwcdn.net/K8aRD/full.png" alt="Informality Rate in Colombia" /></noscript></div>
+  </div>
+
+</main>
+<footer>
+  <span>Didier Hermida Giraldo</span>
+  <span>
+    <a href="https://scholar.google.com/citations?user=Km6TnzAAAAAJ" target="_blank">Google Scholar</a> ·
+    <a href="https://ideas.repec.org/f/phe797.html" target="_blank">IDEAS/RePEC</a>
+  </span>
+</footer>
+</body>
+</html>
