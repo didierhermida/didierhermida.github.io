@@ -13,7 +13,7 @@
   html{scroll-behavior:smooth;}
   body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.75;}
   nav{position:fixed;inset:0 0 auto 0;height:52px;background:var(--nav-bg);border-bottom:1px solid #0a1e36;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:99;}
-  .nav-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--nav-name);text-decoration:none;white-space:nowrap;flex-shrink:0;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--nav-name);text-decoration:none;white-space:nowrap;flex-shrink:0;text-transform:none;letter-spacing:0.01em;}
   nav ul{list-style:none;display:flex;gap:2rem;}
   nav a{font-size:0.75rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--nav-link);text-decoration:none;transition:color 0.15s;background:none;border:none;font-family:inherit;padding:0;}
   nav a:hover{color:#fff;}
@@ -36,10 +36,10 @@
     h1,h2{color:var(--ink);}
   }
   @media(max-width:680px){
-    nav{padding:0 1rem;}
-    .nav-name{font-size:0.72rem;white-space:nowrap;flex-shrink:0;}
-    nav ul{gap:0.8rem;}
-    nav a{font-size:0.58rem;letter-spacing:0.04em;}
+    nav{padding:0 1.2rem;}
+    .nav-name{font-size:0.82rem;}
+    nav ul{gap:1.1rem;}
+    nav a{font-size:0.65rem;letter-spacing:0.06em;}
     main{padding:5rem 1.2rem 3rem;}
     h1{font-size:1.6rem;}
   }
